@@ -7,7 +7,8 @@ public class CourseAvgFees implements CourseInfoProcessor {
 	public float processCourseInfo(Course[] courseList, CourseInfo courseInfo) {
 		// TODO Auto-generated method stub
 		for(Course courseType: courseList) {
-			if((courseType.provider.equals(courseInfo.getProviderName())) && (courseType.duration==courseInfo.getDuration())) {
+			CourseInfo ci = new CourseInfo(courseType.provider, courseType.duration);
+			if(ci.equals(courseInfo)) {
 				avgFees += courseType.fees;
 				total += 1;
 			}

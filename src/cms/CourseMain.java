@@ -55,16 +55,24 @@ public class CourseMain {
 		CourseInfo courseInfo = new CourseInfo("Udemy", 85); 
 		CourseInfoProcessor cip;
 		cip = new TotalMatch();
-		
-		System.out.println(cip.processCourseInfo(courseList, courseInfo));
-		
-		
+		System.out.println("Total matching courses  are "+cip.processCourseInfo(courseList, courseInfo));
 		
 		cip = new CourseAvgFees();
-		
-		System.out.println(cip.processCourseInfo(courseList, courseInfo));
+		System.out.println("Average fees matching course are "+cip.processCourseInfo(courseList, courseInfo));
 		
 
+//		===========================TODO6==================================
+		System.out.println("===========================TODO6==================================");
+		CourseCollection cc = new CourseCollection();
+		try {
+			cc.printCourseNames("Sunbeam");
+		} catch (ProviderNotFoundException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			String message = e.getMessage();
+			System.out.println(message);
+		}
+		
 	}
 
 }
