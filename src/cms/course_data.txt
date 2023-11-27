@@ -1,0 +1,5 @@
+101:C++:80:CDAC:10000
+102:Python:85:Udemy:5000
+103:Java:100:Coursera:15000
+104:C#:38:Sunbeam:5000
+105:SQL:30:UpGrad:5000

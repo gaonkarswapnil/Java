@@ -1,5 +1,10 @@
 package cms;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class CourseMain {
 
 	public static void main(String[] args) {
@@ -72,6 +77,40 @@ public class CourseMain {
 			String message = e.getMessage();
 			System.out.println(message);
 		}
+		
+		
+//		===========================TODO8==================================
+		System.out.println("===========================TODO8==================================");
+		String filename = "./src/cms/course_data.txt";
+		
+		
+		try(FileReader fr = new FileReader(filename); BufferedReader br = new BufferedReader(fr)) {
+			while(true) {
+				String line = br.readLine();
+				
+				if(line== null) {
+					break;
+				}
+//				System.out.println(line);
+				String[] data = line.split(":");
+				int courseId = Integer.parseInt(data[0]);
+				String title = data[1];
+				int duration = Integer.parseInt(data[2]);
+				String provider = data[3];
+				int fees = Integer.parseInt(data[4]);
+				
+				Course c = new Course(courseId, title, duration, provider, fees);
+				System.out.println(c.display()+"\n");
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 	}
 
